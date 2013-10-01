@@ -1,0 +1,30 @@
+TODO: turn this into install.sh
+
+- python 2.7 (http://python.org/download/)
+- ez_setup/pip (http://www.pip-installer.org/en/latest/installing.html)
+- cd ~; mkdir bchanx; cd bchanx
+- install virtualenv (http://www.virtualenv.org/en/latest/#the-system-site-packages-option)
+- virtualenv venv
+- activate virtualenv:
+  - in ~/.bashrc: alias bchanx='source ~/bchanx/misc/.bashrc'
+  - source ~/.bashrc, run `bchanx` to load virtualenv
+- pip install:
+    Flask==0.9
+    Flask-SQLAlchemy==0.16
+    Jinja2==2.6
+    Mako==0.7.3
+    MarkupSafe==0.15
+    SQLAlchemy==0.8.0b2
+    Werkzeug==0.8.3
+    alembic==0.4.2
+    decorator==3.4.0
+    psycopg2==2.4.6
+    requests==1.1.0
+    wsgiref==0.1.2
+- install node/npm `curl https://npm.js.org/install.sh | sh`
+- install less `sudo npm install -g less@1.4.1`
+- clone repos (git clone bchanx, slidr, logos, etc.)
+- setup .env in bchanx `heroku config` ?
+- get closure compiler (https://developers.google.com/closure/compiler/docs/gettingstarted_app)
+- install heroku (https://devcenter.heroku.com/articles/getting-started-with-python)
+

@@ -1,0 +1,50 @@
+HEROKU:
+  VIEW DATABASE INFO:
+    - heroku pg:info
+  SEE DATABASE URL
+    - heroku pg:credentials DATABASE
+
+POSTGRESQL:
+  LOGGING IN:
+    - heroku pg:psql
+  CREATE INDEX:
+    - CREATE [UNIQUE]? INDEX <name> ON <table> (column);
+  DROP INDEX:
+    - DROP INDEX <name>;
+  SHOW TABLES:
+    - \d
+  SHOW COLUMNS:
+    - \d <table name>
+  DESCRIBE TABLE:
+    - \d+ <table name>
+
+POSTGRES BACKUPS: (Dev plans keep up to 7 manual backups)
+  ADDING ADDON:
+    - heroku addons:add pgbackups
+  DEFAULT BACKUP:
+    - heroku pgbackups:capture (HEROKU DB NAME)? [--expire]
+  LIST BACKUPS:
+    - heroku pgbackups
+  DOWNLOADING A BACKUP:
+    - heroku pgbackups:url (b### to specify version)
+  DELETING:
+    - heroku pgbackups:destroy b###
+  RESTORING:
+    - heroku pgbackups:restore HEROKU_POSTGRES_DB b###
+  REMOVING THE ADDON:
+    - heroku addons:remove pgbackups (ALL BACKUPS ARE DESTROYED)
+
+ALEMBIC:
+  CREATE A REVISION:
+    - alembic revision -m "comment here"
+    - alembic revision --autogenerate -m "comment here"
+  UPGRADE:
+    - alembic upgrade head (+2)
+    - alembic upgrade <revision>
+  DOWNGRADE:
+    - alembic downgrade base (reset)
+    - alembic downgrade (-1)
+  VIEW CURRENT:
+    - alembic current
+  VIEW HISTORY:
+    - alembic history
