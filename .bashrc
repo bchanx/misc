@@ -5,18 +5,20 @@ export PATH=$PATH
 export PYTHONSTARTUP=/dev/null
 export GREP_OPTIONS='--color=auto'
 
+BASE=~/bchanx
+VENV=venv
 
 ####
 #### V I R T U A L  E N V
 ####
-if [ -e ~/bchanx/venv ]
+if [ -e $BASE/$VENV ]
 then
   pushd . > /dev/null
-  cd ~/bchanx/venv
+  cd $BASE/$VENV
   source bin/activate
   popd > /dev/null
 fi
-cd ~/bchanx/bchanx
+cd $BASE/bchanx
 
 
 ####
@@ -51,14 +53,14 @@ function sourceIfExists {
 alias py='python'
 
 function min {
-  java -jar ~/bchanx/closure-compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js $1 --js_output_file $2
+  java -jar $BASE/misc/closure-compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js $1 --js_output_file $2
 }
 
 function copyright {
-  python ~/bchanx/bchanx/copyright.py $@
+  python $BASE/misc/copyright.py $@
 }
 
 function bchanxx {
-  source ~/.bash_profile
+  sourceIfExists ~/.bash_profile
 }
 
