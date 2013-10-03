@@ -18,7 +18,7 @@ then
   source bin/activate
   popd > /dev/null
 fi
-cd $BASE/bchanx
+cd $BASE
 
 
 ####
