@@ -4,6 +4,8 @@ TODO: turn this into install.sh
 - ez_setup/pip (http://www.pip-installer.org/en/latest/installing.html)
 - cd ~; mkdir bchanx; cd bchanx
 - install virtualenv (http://www.virtualenv.org/en/latest/#the-system-site-packages-option)
+- install node/npm `curl https://npmjs.org/install.sh | sh`
+- install less `sudo npm install -g less@1.4.1`
 - virtualenv venv
 - activate virtualenv:
   - in ~/.bashrc: alias bchanx='source ~/bchanx/misc/.bashrc'
@@ -21,10 +23,38 @@ TODO: turn this into install.sh
     psycopg2==2.4.6
     requests==1.1.0
     wsgiref==0.1.2
-- install node/npm `curl https://npm.js.org/install.sh | sh`
-- install less `sudo npm install -g less@1.4.1`
-- clone repos (git clone bchanx, slidr, logos, etc.)
-- setup .env in bchanx `heroku config` ?
-- get closure compiler (https://developers.google.com/closure/compiler/docs/gettingstarted_app)
-- install heroku (https://devcenter.heroku.com/articles/getting-started-with-python)
 
+- clone repos (git clone bchanx, slidr, logos, etc.)
+- install heroku (https://devcenter.heroku.com/articles/getting-started-with-python)
+- setup .env in bchanx `heroku config --shell > .env`
+- get closure compiler (https://developers.google.com/closure/compiler/docs/gettingstarted_app)
+
+
+------ ubuntu
+- sudo apt-get install python-pip
+- sudo apt-get install python-virtualenv
+- sudo apt-get install curl
+- sudo apt-get install nodejs
+- wget https://npmjs.org/install.sh
+- sudo sh ./install.sh; rm install.sh
+- sudo npm install -g less@1.4.1
+- cd ~; mkdir bchanx; cd bchanx
+- git clone git@github.com:bchanx/misc.git
+- virtualenv venv
+- vim ~/.bashrc, add "alias bchanx='source ~/bchanx/misc/.bashrc'"
+- source ~/.bashrc; bchanx
+- pip install flask
+- pip install flask-sqlalchemy==0.16
+- pip install alembic==0.4.2
+- pip install requests
+- git clone git@github.com:bchanx/bchanx.git
+- git clone git@github.com:bchanx/slidr.git
+- git clone git@github.com:bchanx/logos-in-pure-css.git
+- wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+- cd bchanx
+- git remote add heroku git@heroku.com:bchanx.git
+- heroku keys:add
+- heroku config --shell > .env
+- sudo apt-get install openjdk-7-jre-headless
+- bchanx; cd misc; wget http://dl.google.com/closure-compiler/compiler-latest.zip; unzip compiler-latest.zip
+- mv compiler.jar closure-compiler.jar; rm compiler-latest.zip; rm COPYING; rm README
