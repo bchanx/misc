@@ -17,7 +17,7 @@ WEBSITE = 'bchanx.com'
 
 COPYRIGHT = 'Copyright (c) %s %s (%s)' % (YEAR, NAME, WEBSITE)
 
-BASEPATH = '/Users/brianchan/bchanx'
+BASEPATH = os.path.expanduser('~/bchanx')
 
 WEBPATH = os.path.join(BASEPATH, 'bchanx')
 
@@ -107,8 +107,8 @@ def copyright(fname):
   path = os.path.realpath(fname)
   if '/.git/' not in path:
     if path.startswith(WEBPATH) and not any([x in path for x in ['/dist/', '/alembic/']]) or \
-      (path.startswith(GITPATH) and any([x in path for x in GIT_PROJECTS])):
-      opensource = None if path.startswith(WEBPATH) else path.split(GITPATH)[1].strip('/').split('/')[0]
+      (path.startswith(BASEPATH) and any([x in path for x in GIT_PROJECTS])):
+      opensource = None if path.startswith(WEBPATH) else path.split(BASEPATH)[1].strip('/').split('/')[0]
       if fname.endswith('.py'):
         python(fname, opensource)
       elif fname.endswith('.js'):
