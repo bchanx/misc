@@ -55,6 +55,9 @@ TODO: turn this into install.sh
 - git remote add heroku git@heroku.com:bchanx.git
 - heroku keys:add
 - heroku config --shell > .env
+- sudo apt-get install python-dev
+- sudo apt-get install libpq-dev
+- pip install psycopg2
 - sudo apt-get install openjdk-7-jre-headless
 - bchanx; cd misc; wget http://dl.google.com/closure-compiler/compiler-latest.zip; unzip compiler-latest.zip
 - mv compiler.jar closure-compiler.jar; rm compiler-latest.zip; rm COPYING; rm README
