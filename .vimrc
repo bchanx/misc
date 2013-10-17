@@ -35,3 +35,7 @@ set showmatch
 
 " Highlight current line
 set cursorline
+
+" Vim colors
+set t_Co=256
+colorscheme grb256
