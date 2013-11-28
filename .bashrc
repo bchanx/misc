@@ -6,11 +6,9 @@
 ### V I R T U A L  E N V
 ###
 BASE=~/bchanx
-if [ -e $BASE/env ]; then
-#  pushd . > /dev/null
+if [ -e $BASE/venv ]; then
   cd $BASE/venv
   source bin/activate
-#  popd > /dev/null
   cd $BASE
 
   ###
