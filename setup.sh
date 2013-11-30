@@ -77,6 +77,7 @@ function setupHomebrew {
     fi
   fi
   brew install wget
+  brew install tree
   log "[SETUP] Homebrew $BREW_VER"
 }
 function setupGit {
@@ -102,7 +103,19 @@ function setupBashrc {
   if ! grep -q "function bchanx" ~/.bashrc; then
     echo "function bchanx {
   if [ -f ~/.bashrc.bchanx ]; then
+    pushd . > /dev/null
     source ~/.bashrc.bchanx
+    popd > /dev/null
+  fi
+}" >> ~/.bashrc
+  fi
+  if ! grep -q "function rebash" ~/.bashrc; then
+    echo "function rebash {
+  if [ -f $SOURCE ]; then
+    source $SOURCE
+  fi
+  if [[ \$(python -c \"import sys; print 1 if hasattr(sys, 'real_prefix') else 0\") -eq 1 ]]; then
+    bchanx
   fi
 }" >> ~/.bashrc
   fi
