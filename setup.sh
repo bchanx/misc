@@ -78,6 +78,7 @@ function setupHomebrew {
   fi
   brew install wget
   brew install tree
+  brew install postgresql
   log "[SETUP] Homebrew $BREW_VER"
 }
 function setupGit {
