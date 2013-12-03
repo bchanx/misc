@@ -46,3 +46,5 @@ set wildmenu
 " Select colorscheme
 colorscheme lucius
 LuciusBlackLowContrast
+" Add comment keys
+source ~/.vim/comments.vim
