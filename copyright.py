@@ -26,7 +26,7 @@ GITPATH = os.path.join(BASEPATH, 'github')
 GIT_PROJECTS = {
   'slidr': {
     'desc': 'A Javascript library for adding slide effects.',
-    'version': ' v0.3.0'
+    'version': ' v0.4.0'
   }
 }
 

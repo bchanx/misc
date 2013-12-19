@@ -141,6 +141,7 @@ function setupNode {
   fi
   if [[ $(lessc --version 2>&1) =~ "command not found" ]]; then
     npm install -g less@1.5.1
+    npm install -g bower
   fi
   log "[SETUP] Node $NPM_VER"
 }
