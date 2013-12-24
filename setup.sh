@@ -208,6 +208,7 @@ function setupVirtualenv {
   pip install flask-sqlalchemy==0.16
   pip install alembic==0.4.2
   pip install requests
+  pip install psycopg2
   log "[SETUP] virtualenv"
 }
 
