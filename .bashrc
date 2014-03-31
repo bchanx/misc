@@ -5,11 +5,11 @@
 ###
 ### V I R T U A L  E N V
 ###
-BASE=~/bchanx
-if [ -e $BASE/venv ]; then
-  cd $BASE/venv
+export BASEPATH=~/bchanx
+if [ -e $BASEPATH/venv ]; then
+  cd $BASEPATH/venv
   source bin/activate
-  cd $BASE
+  cd $BASEPATH
 
   ###
   ### S E T U P
@@ -40,10 +40,11 @@ if [ -e $BASE/venv ]; then
   ### F U N C T I O N S
   ###
   function min {
-    java -jar $BASE/misc/closure-compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js $1 --js_output_file $2
+    java -jar $BASEPATH/misc/closure-compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js $1 --js_output_file $2
   }
   function copyright {
-    python $BASE/misc/copyright.py $@
+    python $BASEPATH/misc/copyright.py $@
   }
+  export -f copyright
 fi
 

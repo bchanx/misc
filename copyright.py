@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Copyright (c) 2013 Brian Chan (bchanx.com)
+Copyright (c) 2014 Brian Chan (bchanx.com)
 All Rights Reserved.
 '''
 
@@ -9,7 +9,7 @@ import os
 import re
 import sys
 
-YEAR = '2013'
+YEAR = '2014'
 
 NAME = 'Brian Chan'
 
@@ -26,7 +26,7 @@ GITPATH = os.path.join(BASEPATH, 'github')
 GIT_PROJECTS = {
   'slidr': {
     'desc': 'A Javascript library for adding slide effects.',
-    'version': ' v0.4.0'
+    'version': ' v0.5.0'
   }
 }
 
