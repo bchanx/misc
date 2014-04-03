@@ -192,6 +192,7 @@ function setupHeroku {
   if [[ ! $(git remote 2>&1) =~ "heroku" ]]; then
     git remote add heroku git@heroku.com:bchanx.git
   fi
+  heroku plugins:install git://github.com/ddollar/heroku-config.git
   heroku keys:add
   heroku config --shell > .env
   log "[SETUP] $HEROKU_VER"
