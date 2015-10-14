@@ -1,0 +1,2 @@
+// Get battery life info
+ioreg -l -n AppleSmartBattery -r | grep -i capacity

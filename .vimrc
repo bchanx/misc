@@ -35,6 +35,8 @@ set ruler
 set shiftwidth=2
 " Don’t show the intro message when starting Vim
 set shortmess=atI
+" More space for displaying messages
+set cmdheight=2
 " Number of spaces to insert for a tab.
 set tabstop=2
 " Show the filename in the window titlebar
