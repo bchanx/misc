@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title #{title}
+    meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+
+    link(rel="icon", type="image/x-icon", href="/favicon.ico")
+    link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" type="text/css")
+    link(rel="stylesheet", href="/dist/main#{min}.css")
+    block stylesheets
+
+  body
+    block content
+
+    script(src="/dist/jquery#{min}.js")
+    script(src="/dist/main#{min}.js")
+    block scripts

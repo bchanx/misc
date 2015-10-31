@@ -52,3 +52,5 @@ LuciusBlackLowContrast
 source ~/.vim/comments.vim
 " Highlight .less as .css
 au BufNewFile,BufRead *.less set filetype=css
+" Allow repeat in visual mode
+vnoremap . :norm.<CR>
