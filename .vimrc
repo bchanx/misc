@@ -54,3 +54,5 @@ source ~/.vim/comments.vim
 au BufNewFile,BufRead *.less set filetype=css
 " Allow repeat in visual mode
 vnoremap . :norm.<CR>
+" Don't save netrw history
+let g:netrw_dirhistmax=0
