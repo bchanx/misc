@@ -2,12 +2,6 @@
   "name": "bchanx",
   "version": "0.0.1",
   "private": true,
-  "description": "bchanx",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bchanx/bchanx.git"
-  },
   "author": "@bchanx",
   "engines": {
     "node": "^6.0.0"

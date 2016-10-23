@@ -1,13 +1,5 @@
 {
-  "name": "cestlacreme",
-  "description": "cestlacreme",
-  "main": "server.js",
-  "authors": [
-    "@bchanx"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/bchanx/cestlacreme",
-  "moduleType": [],
+  "name": "bchanx",
   "private": true,
   "ignore": [
     "**/.*",
