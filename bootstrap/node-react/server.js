@@ -19,40 +19,47 @@ app.set('view engine', 'jade');
 
 var ENV = process.env.NODE_ENV || 'development';
 var PORT = process.env.PORT || 3000;
+var LOCAL_HOST = !!process.env.LOCAL_HOST;
 app.set('env', ENV);
 app.set('port', PORT);
 
-app.use(favicon(__dirname + '/static/favicon.ico'));
 app.use(compress());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '500mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'static')));
+app.use('/static', express.static(path.join(__dirname, 'static')));
 
 app.locals = {
   env: ENV,
-  title: 'Hello World!',
   min: ENV === 'production' ? '.min' : ''
 };
 
-// Initialize DB
-var MODEL_DIR = './models';
-var models = fs.readdirSync(MODEL_DIR);
-models.forEach(function (r) {
-  if (r.endsWith('.js')) {
-    var filepath = MODEL_DIR + '/' + r;
-    var model = require(filepath);
-    if (model.setup) {
-      model.setup();
-    }
-  }
-});
+// Serve favicon
+app.use(favicon(__dirname + '/static/favicon' + (ENV === 'development' ? '-dev' : '') + '.ico'));
 
 // Setup logging middleware
 app.use(function (req, res, next) {
   console.log('[ ' + req.method + ' ]', req.url, req.query, req.body);
   next();
 });
+
+// No caching
+app.use(function (req, res, next) {
+  res.header('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', 0);
+  next();
+});
+
+// Allow CORS
+var allowCrossDomain = function allowCrossDomain(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Request-Method', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  next();
+};
+app.use(allowCrossDomain);
 
 // Setup custom routes
 var ROUTE_DIR = './routes';
@@ -61,7 +68,7 @@ customRoutes.forEach(function (r) {
   if (r.endsWith('.js')) {
     var filepath = ROUTE_DIR + '/' + r;
     var routename = '/' + (r.startsWith('index') ? '' : r.split('.js')[0]);
-    app.use(routename, require(filepath).router);
+    app.use(routename, require(filepath).default);
   }
 });
 
