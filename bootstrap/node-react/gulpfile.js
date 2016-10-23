@@ -24,12 +24,11 @@ const DIST_DIR = 'static/dist';
 const JS_DIR = DIST_DIR + '/js';
 const CSS_DIR = DIST_DIR + '/css';
 const VENDOR_DEPS = [
+  'classnames',
   'react',
   'react-dom',
   'react-router',
   'react-select',
-  'react-timer-mixin',
-  'classnames',
   'superagent'
 ];
 
