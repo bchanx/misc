@@ -70,7 +70,7 @@
 " Added support for ML, Caml, OCaml .ml, mli, PHP (v.4) .php4, PHP (v.5) .php5
 " files as provided by Denis Smolyar
 " Added support for noweb (requires only a small enhancement to the tex type)
-" as provided by Meik "fuller" Teßmer
+" as provided by Meik "fuller" Teï¿½mer
 " Added support for vhdl files provided by Trond Danielsen
 " *********************************************************************************************
 " Jasmeet Anand 20 th March 2008 v2.10
@@ -142,7 +142,7 @@ function! CommentLine()
     endif
   " for .vim files use "
   elseif file_name =~ '\.vim$' || file_name =~ '\.vimrc$'
-	 execute ":silent! normal ^i\"\<ESC>\<down>^"
+   execute ":silent! normal ^i\"\<ESC>\<down>^"
   " for .sql files use --
   elseif file_name =~ '\.sql$'
     execute ":silent! normal ^i--\<ESC>\<down>^"
@@ -177,7 +177,7 @@ function! UnCommentLine()
   " for .ml or .mli
   elseif file_name =~ '\.ml$' || file_name =~ '\.mli$'
     execute ":silent! normal :nohlsearch\<CR>:s/(\\*//\<CR>:nohlsearch\<CR>"
-	execute ":silent! normal :nohlsearch\<CR>:s/\\*)//\<CR>:nohlsearch\<CR>=="
+  execute ":silent! normal :nohlsearch\<CR>:s/\\*)//\<CR>:nohlsearch\<CR>=="
   " for .c or .h or .pc or .css files use /* */
   elseif file_name =~ '\.c$' || file_name =~ '\.h$' || file_name =~ '\.pc$' || file_name =~ '\.css$' || file_name =~ '\.js$'
     execute ":silent! normal :nohlsearch\<CR>:s/\\/\\*//\<CR>:s/\\*\\///\<CR>:nohlsearch\<CR>=="
@@ -249,7 +249,7 @@ function! RangeCommentLine()
   elseif file_name =~ '\.ml$' || file_name =~ '\.mli'
     if stridx(getline("."), "\(\*") == -1 && stridx(getline("."), "\*)/") == -1
       execute ":silent! normal ^i\(*\<ESC>$a*)\<ESC>==\<down>^"
-	endif
+  endif
   " for .vim files use --
   elseif file_name =~ '\.vim$' || file_name =~ '\.vimrc$'
     execute ":silent! normal :s/\\S/\\\"\\0/\<CR>:nohlsearch<CR>"

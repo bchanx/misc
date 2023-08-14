@@ -7,7 +7,7 @@ set autoindent
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Highlight current line
-set cursorline
+" set cursorline
 " Insert spaces when tab is pressed.
 set expandtab
 " One of the most important options to active. Allows you to switch from an
@@ -35,7 +35,6 @@ set ruler
 set shiftwidth=2
 " Don’t show the intro message when starting Vim
 set shortmess=atI
-" More space for displaying messages
 set cmdheight=2
 " Number of spaces to insert for a tab.
 set tabstop=2
@@ -46,13 +45,15 @@ set t_Co=256
 " Enhance command-line completion
 set wildmenu
 " Select colorscheme
-colorscheme lucius
-LuciusBlackLowContrast
+colorscheme grb256
 " Add comment keys
 source ~/.vim/comments.vim
 " Highlight .less as .css
 au BufNewFile,BufRead *.less set filetype=css
-" Allow repeat in visual mode
-vnoremap . :norm.<CR>
-" Don't save netrw history
-let g:netrw_dirhistmax=0
+" lvimrc settings
+let g:localvimrc_ask=0
+" auto reload file if changed
+set autoread
+au CursorHold * checktime
+" show linenumbers
+" :set number

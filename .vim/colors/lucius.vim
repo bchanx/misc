@@ -359,8 +359,8 @@ if s:style == "light"
         hi Type         guifg=#005f87
     endif
 else
-    hi NonText			guifg=#5f875f
-    hi SpecialKey		guifg=#5f5f87
+    hi NonText      guifg=#5f875f
+    hi SpecialKey   guifg=#5f5f87
     if s:contrast == "low"
         hi Comment      guifg=#6c6c6c
         hi Constant     guifg=#afaf87
